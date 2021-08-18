@@ -17,7 +17,7 @@
         </div>
       </div>
     <div id="footer">
-      <p><a href="https://github.com/soham-dixit/todo-app-vuejs" target="_blank">Source code</a></p>
+      <p><a href="https://github.com/soham-dixit/todo-app-vuejs-cli" target="_blank">Source code</a></p>
     </div>
   </body>
 </template>
