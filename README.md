@@ -1,5 +1,7 @@
 # todo-app-vuejs-cli
 
+![image](https://user-images.githubusercontent.com/65973895/129909985-538d4146-cb7a-49bc-a8d7-399dcebf2aeb.png)
+
 ## Project setup
 ```
 npm install
