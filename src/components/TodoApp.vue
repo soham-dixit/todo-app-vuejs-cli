@@ -3,9 +3,12 @@
     <h1 class="heading">TODO APP <i class="fab fa-vuejs fa-xs icon"></i></h1>
       <div class="inputDiv">
         <input class="input" type="text" v-model="todo" placeholder="Enter your todo here"/>
-        <button class="addButton" @click="storeTodo">
+      </div>
+         <button class="addButton" @click="storeTodo">
           <i class="fas fa-plus fa-2x"></i>
         </button>
+      <div class="inputPriority">
+        <input class="input" type="text" v-model="priority" placeholder="Enter your priority here"/>
       </div>
       <div class="container">
         <div class="item" v-for="(todo, index) in todos" :key="index">
@@ -30,6 +33,7 @@ export default {
     return {
       todo: "",
       todos: [],
+      priority: "",
       selectedTodo: null,
     }
 },
@@ -38,10 +42,15 @@ export default {
   {
     storeTodo() 
     {
-      if (this.todo != "") 
+      if (this.todo != "")
       {
         this.todos.push({name: this.todo, isStrikedOff: false});
         this.todo = "";
+        this.isError=false
+      }
+      else 
+      {
+        this.isError=true
       }
     },
 

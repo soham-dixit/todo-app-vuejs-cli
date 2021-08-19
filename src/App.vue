@@ -75,6 +75,28 @@ h1 {
   box-shadow: 0 0 10px 3px yellow;
 }
 
+.inputPriority {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputPriority .input {
+  padding: 0.5rem 1rem;
+  height: 50px;
+  outline: none;
+  border: none;
+  width: 350px;
+  font-size: 1.15rem;
+  margin: 0.25rem;
+  transition: 0.5s;
+  border-radius: 25px;
+}
+
+.inputPri:hover {
+  box-shadow: 0 0 10px 3px yellow;
+}
+
 .addButton {
   height: 50px;
   width: 50px;
@@ -83,7 +105,9 @@ h1 {
   border: none;
   background-color: #a0a4d9;
   color: black;
-  margin: 0.25rem;
+  /* margin: 0.25rem; */
+  margin-top: -50px;
+  margin-left: 63%;
   cursor: pointer;
   transition: 0.5s;
 }
