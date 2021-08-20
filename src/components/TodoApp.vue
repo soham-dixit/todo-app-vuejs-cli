@@ -4,14 +4,18 @@
       <div class="inputDiv">
         <input class="input" type="text" v-model="todo" placeholder="Enter your todo here"/>
       </div>
-         <button class="addButton" @click="storeTodo">
-          <i class="fas fa-plus fa-2x"></i>
-        </button>
       <div class="inputPriority">
         <input class="input" type="text" v-model="priority" placeholder="Enter your priority here"/>
       </div>
+      <h4 v-if="isError">Text field required</h4>
+        <button class="addButton" @click="storeTodo">
+          <i class="fas fa-plus fa-2x"></i>
+        </button>
       <div class="container">
         <div class="item" v-for="(todo, index) in todos" :key="index">
+          <div class="itemPriority" v-for="(priority, index) in priorities" :key="index">
+            {{ priority.name }}
+          </div>
           <div class="itemInput" :class="{'strikeout': todo.isStrikedOff == true}">
             {{ todo.name }}
           </div>
@@ -32,9 +36,11 @@ export default {
   data(){
     return {
       todo: "",
-      todos: [],
       priority: "",
+      priorities: [],
+      todos: [],
       selectedTodo: null,
+      isError: false
     }
 },
 
@@ -42,12 +48,15 @@ export default {
   {
     storeTodo() 
     {
-      if (this.todo != "")
+      if (this.todo != "", this.priority != "")
       {
         this.todos.push({name: this.todo, isStrikedOff: false});
+        this.priorities.push({name: this.priority});
+        this.priority = "";
         this.todo = "";
         this.isError=false
       }
+
       else 
       {
         this.isError=true

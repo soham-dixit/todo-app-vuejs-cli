@@ -39,8 +39,16 @@ body {
 h1 {
   font-size: 3rem;
   font-weight: 50;
-  margin: 1rem 0 3rem;
+  margin: 1rem 0 1rem;
   text-align: center;
+}
+
+h4{
+  font-family: 'Courier New', Courier, monospace;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .heading {
@@ -97,6 +105,12 @@ h1 {
   box-shadow: 0 0 10px 3px yellow;
 }
 
+.itemPriority{
+  font-family: "Sriracha", cursive;
+  font-size: 15px;
+  color: yellow;
+}
+
 .addButton {
   height: 50px;
   width: 50px;
@@ -105,9 +119,8 @@ h1 {
   border: none;
   background-color: #a0a4d9;
   color: black;
-  /* margin: 0.25rem; */
-  margin-top: -50px;
-  margin-left: 63%;
+  margin-top: 0.5rem;
+  margin-left: 48.5%;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -119,7 +132,7 @@ h1 {
 }
 
 .removeTodo {
-  font-size: 1rem;
+  font-size: 15px;
   font-family: "Sriracha", cursive;
   background: none;
   outline: none;
@@ -129,7 +142,7 @@ h1 {
 }
 
 .doneTodo {
-  font-size: 1rem;
+  font-size: 15px;
   margin: 0 0.5rem;
   font-family: "Sriracha", cursive;
   background: none;
@@ -152,11 +165,12 @@ h1 {
 
 .itemInput {
   background: none;
+  font-family: "Sriracha", cursive;
   outline: none;
   color: #fff;
   border: none;
   width: 245px;
-  font-size: 1rem;
+  font-size: 15px;
 }
 
 #footer * {
