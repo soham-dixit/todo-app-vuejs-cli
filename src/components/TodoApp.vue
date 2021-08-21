@@ -5,9 +5,11 @@
         <input class="input" type="text" v-model="todo" placeholder="Enter your todo here"/>
       </div>
       <div class="inputPriority">
-        <input class="input" type="text" v-model="priority" placeholder="Enter your priority here"/>
+        <input class="input" type="text" @keypress="validateNumber" v-model="priority" placeholder="Enter your priority here"/>
       </div>
-      <h4 v-if="isError">Text field required</h4>
+      <!-- <div id="output-box"></div> -->
+      <h4 v-if="isError">Text field required.</h4>
+      <h4 v-if="isErrorNum">Please enter number only.</h4>
         <button class="addButton" @click="storeTodo">
           <i class="fas fa-plus fa-2x"></i>
         </button>
@@ -40,15 +42,32 @@ export default {
       priorities: [],
       todos: [],
       selectedTodo: null,
-      isError: false
+      isError: false,
+      isErrorNum: false
     }
 },
 
   methods: 
   {
+    validateNumber()
+      {
+        let keyCode = event.keyCode;
+        if(keyCode < 48 || keyCode > 57)
+        {
+          event.preventDefault();
+          this.isErrorNum = true
+          // alert("Please enter num");
+          // document.getElementById("output-box").innerHTML += "Sorry! <code>preventDefault()</code> won't let you check this!<br>";
+        }
+
+        else{
+          this.isErrorNum = false
+        }
+      },
+
     storeTodo() 
     {
-      if (this.todo != "", this.priority != "")
+      if (this.todo != "" && this.priority != "")
       {
         this.todos.push({name: this.todo, isStrikedOff: false});
         this.priorities.push({name: this.priority});
@@ -66,6 +85,7 @@ export default {
     removeTodo(index) 
     {
       this.todos.splice(index, 1);
+      this.priorities.splice(index, 1);
     },
 
     doneTodo(index)
