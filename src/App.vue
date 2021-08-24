@@ -190,4 +190,19 @@ h4{
 .strikeout{
   text-decoration: line-through;
 }
+
+/* .removedTodos{
+  background-color: rgba(255, 255, 255, 0.185);
+  opacity: 0.5;
+}
+
+.removedItems{
+  background: none;
+  font-family: "Sriracha", cursive;
+  outline: none;
+  color: #fff;
+  border: none;
+  width: 245px;
+  font-size: 15px;
+} */
 </style>

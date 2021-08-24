@@ -23,6 +23,14 @@
             <button class="removeTodo" @click="removeTodo(index)">Remove</button>
         </div>
       </div>
+      <!-- <div class="items">
+        <div class="item" v-for="(todo, index) in removedTodos" :key="index">
+          <div class="itemInput">
+            {{todo.seq}}
+            {{todo.name}}
+          </div>
+        </div>
+      </div> -->
     <div id="footer">
       <p><a href="https://github.com/soham-dixit/todo-app-vuejs-cli" target="_blank">Source code</a></p>
     </div>
@@ -39,6 +47,8 @@ export default {
       priority: "",
       // priorities: [],
       todos: [],
+      removedTodos: [],
+      removedTodo: "",
       isError: false,
       isErrorNum: false
     }
@@ -83,15 +93,21 @@ export default {
 
     removeTodo(index) 
     {
-      this.todos[index].isStrikedOff=true;
-      // this.todos.splice(index, 1);
-      // this.priorities.splice(index, 1);
+      // this.todos[index].isStrikedOff=true;
+      // this.removedItems();
+      this.todos.splice(index, 1);
+      this.priorities.splice(index, 1);
     },
 
     doneTodo(index)
     {
         this.todos[index].isStrikedOff=true;
     },
+
+    // removedItems()
+    // {
+    //   this.removedTodos.push({name:this.todos.concat(this.removedTodo)})
+    // }
   },
 };
 </script>
