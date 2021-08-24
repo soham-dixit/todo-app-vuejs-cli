@@ -69,7 +69,7 @@ h4{
 
 .inputDiv .input {
   padding: 0.5rem 1rem;
-  height: 50px;
+  height: 40px;
   outline: none;
   border: none;
   width: 350px;
@@ -91,7 +91,7 @@ h4{
 
 .inputPriority .input {
   padding: 0.5rem 1rem;
-  height: 50px;
+  height: 40px;
   outline: none;
   border: none;
   width: 350px;

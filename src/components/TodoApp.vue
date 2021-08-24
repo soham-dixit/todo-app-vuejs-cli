@@ -15,11 +15,9 @@
         </button>
       <div class="container">
         <div class="item" v-for="(todo, index) in todos" :key="index">
-          <div class="itemPriority" v-for="(priority, index) in priorities" :key="index">
-            {{ priority.name }}
-          </div>
           <div class="itemInput" :class="{'strikeout': todo.isStrikedOff == true}">
-            {{ todo.name }}
+            {{todo.seq}}
+            {{todo.name}}
           </div>
             <button class="doneTodo" @click="doneTodo(index)">Done</button>
             <button class="removeTodo" @click="removeTodo(index)">Remove</button>
@@ -39,9 +37,8 @@ export default {
     return {
       todo: "",
       priority: "",
-      priorities: [],
+      // priorities: [],
       todos: [],
-      selectedTodo: null,
       isError: false,
       isErrorNum: false
     }
@@ -69,11 +66,13 @@ export default {
     {
       if (this.todo != "" && this.priority != "")
       {
-        this.todos.push({name: this.todo, isStrikedOff: false});
-        this.priorities.push({name: this.priority});
+        this.todos.push({name: this.todo, seq:Number(this.priority), isStrikedOff: false});
+        //sort this.todos array
+        this.todos.sort( (a, b) => { return a.seq - b.seq} )
         this.priority = "";
         this.todo = "";
         this.isError=false
+        // this.priorities.sort((a, b) => (a.priority > b.priority) ? -1 : 1);
       }
 
       else 
@@ -84,8 +83,9 @@ export default {
 
     removeTodo(index) 
     {
-      this.todos.splice(index, 1);
-      this.priorities.splice(index, 1);
+      this.todos[index].isStrikedOff=true;
+      // this.todos.splice(index, 1);
+      // this.priorities.splice(index, 1);
     },
 
     doneTodo(index)
