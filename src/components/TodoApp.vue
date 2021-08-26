@@ -117,6 +117,8 @@ export default {
     }
   },
   
+  //referred https://travishorn.com/add-localstorage-to-your-vue-app-in-2-lines-of-code-56eb2c9f371b
+  
   mounted() 
   {
     console.log('App mounted!');
