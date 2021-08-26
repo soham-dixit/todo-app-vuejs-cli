@@ -31,8 +31,8 @@
               {{todo.seq}}
               {{todo.name}}
             </div>
-            <button class="removeTodo" @click="deleteTodo(index)">Delete</button>
             <button class="retrieveTodo" @click="retrieveTodo(index)">Retrieve</button>
+            <button class="deleteTodo" @click="deleteTodo(index)">Delete</button>
           </div>
         </div>
       </div>
@@ -114,6 +114,7 @@ export default {
     retrieveTodo(index)
     {
       this.todos.push(...this.removedTodos.splice(index, 1));
+      this.todos.sort( (a, b) => { return a.seq - b.seq} )
     }
   },
 };

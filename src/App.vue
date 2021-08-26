@@ -155,6 +155,18 @@ h4{
   color: red;
   border: none;
   cursor: pointer;
+  margin-left: 2rem;
+}
+
+.deleteTodo {
+  font-size: 15px;
+  font-family: "Sriracha", cursive;
+  background: none;
+  outline: none;
+  color: red;
+  border: none;
+  cursor: pointer;
+  margin-left: 2rem;
 }
 
 .retrieveTodo {
@@ -163,7 +175,6 @@ h4{
   background: none;
   outline: none;
   color: rgb(0, 217, 255);
-  margin-left: 2rem;
   border: none;
   cursor: pointer;
 }
