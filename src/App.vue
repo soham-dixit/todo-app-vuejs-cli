@@ -36,6 +36,15 @@ body {
   margin-top: 2rem;
 }
 
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 2rem;
+}
+
 h1 {
   font-size: 3rem;
   font-weight: 50;
@@ -55,6 +64,13 @@ h4{
   font-family: "Sriracha", cursive;
   font-weight: 800;
   color: yellow;
+}
+
+.sub-heading{
+  font-family: "Sriracha", cursive;
+  font-weight: 800;
+  color: yellow;
+  font-size: 1.8rem;
 }
 
 .icon {
@@ -112,8 +128,8 @@ h4{
 }
 
 .addButton {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 25px;
   outline: none;
   border: none;
@@ -141,6 +157,17 @@ h4{
   cursor: pointer;
 }
 
+.retrieveTodo {
+  font-size: 15px;
+  font-family: "Sriracha", cursive;
+  background: none;
+  outline: none;
+  color: rgb(0, 217, 255);
+  margin-left: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
 .doneTodo {
   font-size: 15px;
   margin: 0 0.5rem;
@@ -161,6 +188,17 @@ h4{
 
 .item:hover {
   box-shadow: 0 0 10px 3px yellow;
+}
+
+.removedItem {
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #fff;
+  transition: 0.5s;
+}
+
+.removedItem:hover {
+  box-shadow: 0 0 10px 3px red;
 }
 
 .itemInput {
@@ -194,7 +232,7 @@ h4{
 /* .removedTodos{
   background-color: rgba(255, 255, 255, 0.185);
   opacity: 0.5;
-}
+} */
 
 .removedItems{
   background: none;
@@ -204,5 +242,5 @@ h4{
   border: none;
   width: 245px;
   font-size: 15px;
-} */
+}
 </style>

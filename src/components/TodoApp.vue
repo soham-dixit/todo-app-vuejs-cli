@@ -23,17 +23,23 @@
             <button class="removeTodo" @click="removeTodo(index)">Remove</button>
         </div>
       </div>
-      <!-- <div class="items">
-        <div class="item" v-for="(todo, index) in removedTodos" :key="index">
-          <div class="itemInput">
-            {{todo.seq}}
-            {{todo.name}}
+      <h1 class="sub-heading">REMOVED TODOS <i class="fas fa-trash-alt fa-xs icon"></i></h1>
+      <div class="sub-container">
+        <div class="items">
+          <div class="removedItem" v-for="(todo, index) in removedTodos" :key="index">
+           <div class="itemInput strikeout">
+              {{todo.seq}}
+              {{todo.name}}
+            </div>
+            <button class="removeTodo" @click="deleteTodo(index)">Delete</button>
+            <button class="retrieveTodo" @click="retrieveTodo(index)">Retrieve</button>
           </div>
         </div>
-      </div> -->
-    <div id="footer">
+      </div>
+
+    <!-- <div id="footer">
       <p><a href="https://github.com/soham-dixit/todo-app-vuejs-cli" target="_blank">Source code</a></p>
-    </div>
+    </div> -->
   </body>
 </template>
 
@@ -48,7 +54,6 @@ export default {
       // priorities: [],
       todos: [],
       removedTodos: [],
-      removedTodo: "",
       isError: false,
       isErrorNum: false
     }
@@ -93,10 +98,12 @@ export default {
 
     removeTodo(index) 
     {
-      // this.todos[index].isStrikedOff=true;
-      // this.removedItems();
-      this.todos.splice(index, 1);
-      this.priorities.splice(index, 1);
+      this.removedTodos.push(...this.todos.splice(index, 1));
+    },
+
+    deleteTodo(index) 
+    {
+      this.removedTodos.splice(index,1)
     },
 
     doneTodo(index)
@@ -104,10 +111,10 @@ export default {
         this.todos[index].isStrikedOff=true;
     },
 
-    // removedItems()
-    // {
-    //   this.removedTodos.push({name:this.todos.concat(this.removedTodo)})
-    // }
+    retrieveTodo(index)
+    {
+      this.todos.push(...this.removedTodos.splice(index, 1));
+    }
   },
 };
 </script>
