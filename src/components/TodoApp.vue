@@ -51,7 +51,6 @@ export default {
     return {
       todo: "",
       priority: "",
-      // priorities: [],
       todos: [],
       removedTodos: [],
       isError: false,
@@ -116,6 +115,34 @@ export default {
       this.todos.push(...this.removedTodos.splice(index, 1));
       this.todos.sort( (a, b) => { return a.seq - b.seq} )
     }
+  },
+  
+  mounted() 
+  {
+    console.log('App mounted!');
+    if (localStorage.getItem('todos')) this.todos = JSON.parse(localStorage.getItem('todos'));
+    if (localStorage.getItem('removedTodos')) this.removedTodos = JSON.parse(localStorage.getItem('removedTodos'));
+  },
+  watch: 
+  {
+    todos: 
+    {
+      handler() 
+      {
+        console.log('Todos changed!');
+        localStorage.setItem('todos', JSON.stringify(this.todos));
+      },
+      deep: true,
+    },
+    removedTodos: 
+    {
+      handler() 
+      {
+        console.log('Todos changed!');
+        localStorage.setItem('removedTodos', JSON.stringify(this.removedTodos));
+      },
+      deep: true,
+    },
   },
 };
 </script>
