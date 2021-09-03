@@ -71,6 +71,7 @@ h4{
   font-weight: 800;
   color: yellow;
   font-size: 1.8rem;
+  margin-top: -1rem;
 }
 
 .icon {
@@ -253,5 +254,12 @@ h4{
   border: none;
   width: 245px;
   font-size: 15px;
+}
+
+.desc{
+  font-size: 15px;
+  color: rgb(158, 158, 158);
+  white-space: pre-wrap; 
+  word-wrap: break-word;
 }
 </style>

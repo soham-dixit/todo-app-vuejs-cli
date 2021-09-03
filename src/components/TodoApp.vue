@@ -4,6 +4,9 @@
       <div class="inputDiv">
         <input class="input" type="text" v-model="todo" placeholder="Enter your todo here"/>
       </div>
+      <div class="inputDiv">
+        <input class="input" type="text" v-model="todoDesc" placeholder="Enter your description here"/>
+      </div>
       <div class="inputPriority">
         <input class="input" type="text" @keypress="validateNumber" v-model="priority" placeholder="Enter your priority here"/>
       </div>
@@ -18,6 +21,7 @@
           <div class="itemInput" :class="{'strikeout': todo.isStrikedOff == true}">
             {{todo.seq}}
             {{todo.name}}
+            <div class="desc" style="white-space: pre-wrap">{{todo.desc}}</div>
           </div>
             <button class="doneTodo" @click="doneTodo(index)">Done</button>
             <button class="removeTodo" @click="removeTodo(index)">Remove</button>
@@ -30,6 +34,7 @@
            <div class="itemInput strikeout">
               {{todo.seq}}
               {{todo.name}}
+              <div class="desc" style="white-space: pre-line;">{{todo.desc}}</div>
             </div>
             <button class="retrieveTodo" @click="retrieveTodo(index)">Retrieve</button>
             <button class="deleteTodo" @click="deleteTodo(index)">Delete</button>
@@ -52,6 +57,7 @@ export default {
       todo: "",
       priority: "",
       todos: [],
+      todoDesc:"",
       removedTodos: [],
       isError: false,
       isErrorNum: false
@@ -78,13 +84,14 @@ export default {
 
     storeTodo() 
     {
-      if (this.todo != "" && this.priority != "")
+      if (this.todo != "" && this.todoDesc != "" && this.priority != "")
       {
-        this.todos.push({name: this.todo, seq:Number(this.priority), isStrikedOff: false});
+        this.todos.push({name: this.todo, desc:this.todoDesc, seq:Number(this.priority), isStrikedOff: false});
         //sort this.todos array
         this.todos.sort( (a, b) => { return a.seq - b.seq} )
         this.priority = "";
         this.todo = "";
+        this.todoDesc = "";
         this.isError=false
         // this.priorities.sort((a, b) => (a.priority > b.priority) ? -1 : 1);
       }
