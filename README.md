@@ -1,6 +1,6 @@
 # todo-app-vuejs-cli
 
-![image](https://user-images.githubusercontent.com/65973895/129909985-538d4146-cb7a-49bc-a8d7-399dcebf2aeb.png)
+![screenshot](https://user-images.githubusercontent.com/65973895/132090246-71af7f75-e73b-45a5-9942-6660125fc838.png)
 
 ## Project setup
 ```
