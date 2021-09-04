@@ -1,4 +1,4 @@
-# todo-app-vuejs-cli
+# Todo app built in Vue.js using LocalStorage
 
 ![screenshot](https://user-images.githubusercontent.com/65973895/132090246-71af7f75-e73b-45a5-9942-6660125fc838.png)
 
