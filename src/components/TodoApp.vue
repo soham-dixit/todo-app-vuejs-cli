@@ -7,6 +7,9 @@
       <div class="inputDiv">
         <input class="input" type="text" v-model="todoDesc" placeholder="Enter your description here"/>
       </div>
+      <!-- <div class="inputDiv">
+        <input class="input" type="text" v-model="todoCat" placeholder="Enter your category here"/>
+      </div> -->
       <div class="inputPriority">
         <input class="input" type="text" @keypress="validateNumber" v-model="priority" placeholder="Enter your priority here"/>
       </div>
@@ -58,6 +61,7 @@ export default {
       priority: "",
       todos: [],
       todoDesc:"",
+      // todoCat:"",
       removedTodos: [],
       isError: false,
       isErrorNum: false
@@ -92,6 +96,7 @@ export default {
         this.priority = "";
         this.todo = "";
         this.todoDesc = "";
+        // this.todoCat = "";
         this.isError=false
         // this.priorities.sort((a, b) => (a.priority > b.priority) ? -1 : 1);
       }
