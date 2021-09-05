@@ -262,4 +262,67 @@ h4{
   white-space: pre-wrap; 
   word-wrap: break-word;
 }
+
+/* .dropbtn {
+  background-color: #6b6b6b;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  margin-top: 8px;
+  width: 350px;
+  height: 40px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  align-items: center;
+  margin-left: 38.5%;
+}
+
+.dropdown-content {
+  display: none;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border: none;
+  width: 350px;
+  height: 20px;
+  font-family: "Sriracha", cursive;
+}
+
+.dropdown-content a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #41B883;}
+
+.filterButton{
+  font-size: 15px;
+  margin-left: 41%;
+  align-items: center;
+  background: none;
+  outline: none;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+} */
+
+.box{
+  margin-left: 38.5%;
+  margin-top: 0.5rem;
+}
+
+.box select{
+  width: 350px;
+  height: 40px;
+  border-radius: 25px;
+  font-size: 15px;
+}
 </style>

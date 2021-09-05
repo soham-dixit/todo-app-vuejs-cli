@@ -7,18 +7,30 @@
       <div class="inputDiv">
         <input class="input" type="text" v-model="todoDesc" placeholder="Enter your description here"/>
       </div>
-      <!-- <div class="inputDiv">
-        <input class="input" type="text" v-model="todoCat" placeholder="Enter your category here"/>
-      </div> -->
       <div class="inputPriority">
         <input class="input" type="text" @keypress="validateNumber" v-model="priority" placeholder="Enter your priority here"/>
       </div>
+      <div class="box">
+        <select v-model="todoCat">
+          <option>College</option>
+          <option>Internship</option>
+          <option>Daily todos</option>
+          <option>Random</option>
+        </select>
+      </div>
+          <!-- <div class="dropdown">
+            <button class="dropbtn">Category</button>
+              <div class="dropdown-content" v-for="(todo,index) in todos" :key="index">
+                <button class="filterButton" @click="filter(index)">{{todo.cat}}</button>
+              </div>
+          </div> -->
       <!-- <div id="output-box"></div> -->
       <h4 v-if="isError">Text field required.</h4>
       <h4 v-if="isErrorNum">Please enter number only.</h4>
         <button class="addButton" @click="storeTodo">
           <i class="fas fa-plus fa-2x"></i>
         </button>
+        <br>
       <div class="container">
         <div class="item" v-for="(todo, index) in todos" :key="index">
           <div class="itemInput" :class="{'strikeout': todo.isStrikedOff == true}">
@@ -44,7 +56,6 @@
           </div>
         </div>
       </div>
-
     <!-- <div id="footer">
       <p><a href="https://github.com/soham-dixit/todo-app-vuejs-cli" target="_blank">Source code</a></p>
     </div> -->
@@ -52,6 +63,7 @@
 </template>
 
 <script>
+
 export default {
   name: "TodoApp",
 
@@ -61,10 +73,10 @@ export default {
       priority: "",
       todos: [],
       todoDesc:"",
-      // todoCat:"",
+      todoCat:"",
       removedTodos: [],
       isError: false,
-      isErrorNum: false
+      isErrorNum: false,
     }
 },
 
@@ -88,15 +100,15 @@ export default {
 
     storeTodo() 
     {
-      if (this.todo != "" && this.todoDesc != "" && this.priority != "")
+      if (this.todo != "" && this.todoDesc != "" && this.todoCat != "" && this.priority != "")
       {
-        this.todos.push({name: this.todo, desc:this.todoDesc, seq:Number(this.priority), isStrikedOff: false});
+        this.todos.push({name: this.todo, desc:this.todoDesc, cat:this.todoCat, seq:Number(this.priority), isStrikedOff: false});
         //sort this.todos array
         this.todos.sort( (a, b) => { return a.seq - b.seq} )
         this.priority = "";
         this.todo = "";
         this.todoDesc = "";
-        // this.todoCat = "";
+        this.todoCat = "";
         this.isError=false
         // this.priorities.sort((a, b) => (a.priority > b.priority) ? -1 : 1);
       }
