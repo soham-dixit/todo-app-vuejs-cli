@@ -34,7 +34,7 @@
       <div class="container">
         <div class="item" v-for="(todo, index) in todos" :key="index">
           <div class="itemInput" :class="{'strikeout': todo.isStrikedOff == true}">
-            {{todo.seq}}
+            {{todo.seq}} -
             {{todo.name}}
             <div class="desc" style="white-space: pre-wrap">{{todo.desc}}</div>
           </div>
