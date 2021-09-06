@@ -325,4 +325,17 @@ h4{
   border-radius: 25px;
   font-size: 15px;
 }
+
+.filter-box {
+  margin-top: 5px;
+  margin-left: 38.5%;
+}
+
+.form-control {
+  background-color: #0077ff;
+  color: white;
+  width: 350px;
+  border-radius: 25px;
+  font-size: 15px;
+}
 </style>

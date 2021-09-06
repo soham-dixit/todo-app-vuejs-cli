@@ -10,14 +10,17 @@
       <div class="inputPriority">
         <input class="input" type="text" @keypress="validateNumber" v-model="priority" placeholder="Enter your priority here"/>
       </div>
-      <div class="box">
-        <select v-model="todoCat">
-          <option>College</option>
-          <option>Internship</option>
-          <option>Daily todos</option>
-          <option>Random</option>
-        </select>
+      <div class="inputDiv">
+        <input class="input" type="text" v-model="todoCat" placeholder="Enter your category here"/>
       </div>
+              <div class="filter-box">
+                  <select class="form-control">
+                     <option value="" selected disabled>Category</option>
+                      <option v-for="(todo,index) in todos"  :key="index" style="background-color: white; color: black; font-weight: bold;">
+                         {{ todo.cat }}
+                      </option>
+                  </select>
+              </div>
           <!-- <div class="dropdown">
             <button class="dropbtn">Category</button>
               <div class="dropdown-content" v-for="(todo,index) in todos" :key="index">
@@ -36,7 +39,7 @@
           <div class="itemInput" :class="{'strikeout': todo.isStrikedOff == true}">
             {{todo.seq}} -
             {{todo.name}}
-            <div class="desc" style="white-space: pre-wrap">{{todo.desc}}</div>
+            <div class="desc" style="white-space: pre-wrap">{{todo.desc}} - {{todo.cat}}</div>
           </div>
             <button class="doneTodo" @click="doneTodo(index)">Done</button>
             <button class="removeTodo" @click="removeTodo(index)">Remove</button>
@@ -47,9 +50,9 @@
         <div class="items">
           <div class="removedItem" v-for="(todo, index) in removedTodos" :key="index">
            <div class="itemInput strikeout">
-              {{todo.seq}}
+              {{todo.seq}} - 
               {{todo.name}}
-              <div class="desc" style="white-space: pre-line;">{{todo.desc}}</div>
+              <div class="desc" style="white-space: pre-line;">{{todo.desc}} - {{todo.cat}}</div>
             </div>
             <button class="retrieveTodo" @click="retrieveTodo(index)">Retrieve</button>
             <button class="deleteTodo" @click="deleteTodo(index)">Delete</button>
@@ -63,10 +66,8 @@
 </template>
 
 <script>
-
 export default {
   name: "TodoApp",
-
   data(){
     return {
       todo: "",
@@ -79,7 +80,6 @@ export default {
       isErrorNum: false,
     }
 },
-
   methods: 
   {
     validateNumber()
@@ -92,12 +92,10 @@ export default {
           // alert("Please enter num");
           // document.getElementById("output-box").innerHTML += "Sorry! <code>preventDefault()</code> won't let you check this!<br>";
         }
-
         else{
           this.isErrorNum = false
         }
       },
-
     storeTodo() 
     {
       if (this.todo != "" && this.todoDesc != "" && this.todoCat != "" && this.priority != "")
@@ -112,28 +110,23 @@ export default {
         this.isError=false
         // this.priorities.sort((a, b) => (a.priority > b.priority) ? -1 : 1);
       }
-
       else 
       {
         this.isError=true
       }
     },
-
     removeTodo(index) 
     {
       this.removedTodos.push(...this.todos.splice(index, 1));
     },
-
     deleteTodo(index) 
     {
       this.removedTodos.splice(index,1)
     },
-
     doneTodo(index)
     {
         this.todos[index].isStrikedOff=true;
     },
-
     retrieveTodo(index)
     {
       this.todos.push(...this.removedTodos.splice(index, 1));
