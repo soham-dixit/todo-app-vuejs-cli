@@ -35,7 +35,7 @@
         </button>
         <br>
       <div class="container">
-        <div class="item" v-for="(todo, index) in computedItems" :key="index">
+        <div class="item" v-for="(todo, index) in computed_items" :key="index">
           <div class="itemInput" :class="{'strikeout': todo.isStrikedOff == true}">
             {{todo.seq}} -
             {{todo.name}}
@@ -82,7 +82,7 @@ export default {
     }
 },
   computed: {
-            computeItems: function () {
+            computed_items: function () {
                 let filtertype = this.todos.filter((a)=>{
                 if(a.cat === this.selectedCategory){
                     return a;
