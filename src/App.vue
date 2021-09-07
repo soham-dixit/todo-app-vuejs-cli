@@ -332,7 +332,7 @@ h4{
 }
 
 .form-control {
-  background-color: #0077ff;
+  background-color: #41B883;
   color: white;
   width: 350px;
   border-radius: 25px;
