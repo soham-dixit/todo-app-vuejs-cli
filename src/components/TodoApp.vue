@@ -14,7 +14,7 @@
         <input class="input" type="text" v-model="todoCat" placeholder="Enter your category here"/>
       </div>
               <div class="filter-box">
-                  <select class="form-control">
+                  <select class="form-control" v-model="selectedCategory">
                      <option value="" selected disabled>Category</option>
                       <option v-for="(todo,index) in todos"  :key="index" style="background-color: white; color: black; font-weight: bold;">
                          {{ todo.cat }}
@@ -35,7 +35,7 @@
         </button>
         <br>
       <div class="container">
-        <div class="item" v-for="(todo, index) in todos" :key="index">
+        <div class="item" v-for="(todo, index) in computedItems" :key="index">
           <div class="itemInput" :class="{'strikeout': todo.isStrikedOff == true}">
             {{todo.seq}} -
             {{todo.name}}
@@ -74,10 +74,21 @@ export default {
       priority: "",
       todos: [],
       todoDesc:"",
-      todoCat:"",
+      category:"",
       removedTodos: [],
       isError: false,
       isErrorNum: false,
+      selectedCategory: 0,
+    }
+},
+  computed: {
+            computeItems: function () {
+                let filtertype = this.todos.filter((a)=>{
+                if(a.cat === this.selectedCategory){
+                    return a;
+                }
+                })
+                return filtertype;
     }
 },
   methods: 
