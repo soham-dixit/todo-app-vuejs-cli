@@ -15,9 +15,9 @@
       </div>
               <div class="filter-box">
                   <select class="form-control" v-model="selectedCategory">
-                     <option value="" selected disabled>Category</option>
-                      <option v-for="(todo,index) in todos"  :key="index" style="background-color: white; color: black; font-weight: bold;">
-                         {{ todo.cat }}
+                     <option value="" selected enabled>All</option>
+                      <option v-for="(cat,index) in dropDown"  :key="index" style="background-color: white; color: black; font-weight: bold;">
+                         {{ cat }}
                       </option>
                   </select>
               </div>
@@ -78,19 +78,32 @@ export default {
       removedTodos: [],
       isError: false,
       isErrorNum: false,
-      selectedCategory: 0,
+      selectedCategory: ""
     }
 },
   computed: {
-            computed_items: function () {
-                let filtertype = this.todos.filter((a)=>{
-                if(a.cat === this.selectedCategory){
-                    return a;
-                }
-                })
-                return filtertype;
-    }
-},
+    computed_items: function () {
+        if(this.selectedCategory!=="") {
+            let filtertype = this.todos.filter((a)=>{
+            if(a.cat === this.selectedCategory){
+             return a;
+          } 
+        }) 
+        return filtertype;
+        } else {
+          return this.todos;
+        }
+      },
+      
+      dropDown() {
+        let arr= [];
+        this.todos.forEach((e) => {
+          arr.push(e.cat);
+        });
+        let unique = arr.filter((item, i, ar) => ar.indexOf(item) === i);
+          return unique;
+      }
+    },
   methods: 
   {
     validateNumber()
