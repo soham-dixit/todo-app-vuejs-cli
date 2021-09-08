@@ -1,5 +1,5 @@
 # Todo app built in Vue.js using LocalStorage
-[link](https://todo-app-vuejs-cli.netlify.app){:target="_blank"}
+##### https://todo-app-vuejs-cli.netlify.app
 
 ![screenshot](https://user-images.githubusercontent.com/65973895/132527340-12b7892a-4e7f-4013-9b0d-5b60d48f5ec6.png)
 
